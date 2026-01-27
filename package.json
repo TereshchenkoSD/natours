@@ -8,7 +8,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url /js",
-    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url /js"
+    "build:js": "parcel bundle ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url /js"
   },
   "author": "Sergiy Tereshchenko",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "@babel/polyfill": "^7.12.1",
     "axios": "^0.18.1",
     "bcryptjs": "^3.0.3",
+    "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",

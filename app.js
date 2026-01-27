@@ -6,6 +6,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const helmet = require('helmet');
 const AppError = require('./utils/appError');
@@ -38,14 +39,7 @@ app.use(
         "'unsafe-inline'",
         'https://*.mapbox.com',
         'https://cdnjs.cloudflare.com'
-        // 'https://js.stripe.com',
-        // 'https://js.stripe.com/v3/'
       ],
-      // scriptSrcElem: [
-      //   "'self'",
-      //   'https://js.stripe.com',
-      //   'https://js.stripe.com/v3/'
-      // ],
       styleSrc: ["'self'", "'unsafe-inline'", 'https://*.mapbox.com'],
       imgSrc: ["'self'", 'data:', 'blob:', 'https://*.mapbox.com'],
       connectSrc: ["'self'", 'https://*.mapbox.com', 'ws://127.0.0.1:*']
@@ -53,7 +47,7 @@ app.use(
   })
 );
 
-// app.use(helmet.crossOriginEmbedderPolicy({ policy: 'credentialless' }));
+app.use(compression());
 
 // Development logging
 

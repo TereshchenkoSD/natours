@@ -18,7 +18,6 @@ const bookButton = document.getElementById('book-tour');
 
 // DELEGATION
 if (mapBox) {
-  console.log('Map box found');
   const locations = JSON.parse(
     document.getElementById('map').dataset.locations
   );
@@ -58,7 +57,7 @@ if (userDataForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+
     updateSettings(form, 'data');
   });
 }

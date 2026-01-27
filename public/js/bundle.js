@@ -8268,7 +8268,7 @@ function () {
           _context.n = 1;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
               email: email,
               password: password
@@ -8285,7 +8285,6 @@ function () {
             }, 1500);
           }
 
-          console.log(res);
           _context.n = 3;
           break;
 
@@ -8320,7 +8319,7 @@ function () {
           _context2.n = 1;
           return (0, _axios.default)({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
           });
 
         case 1:
@@ -8382,7 +8381,7 @@ function () {
           _context.n = 1;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
+            url: '/api/v1/users/signup',
             data: {
               name: name,
               email: email,
@@ -8401,7 +8400,6 @@ function () {
             }, 1500);
           }
 
-          console.log(res);
           _context.n = 3;
           break;
 
@@ -8455,7 +8453,7 @@ function () {
       while (1) switch (_context.p = _context.n) {
         case 0:
           _context.p = 0;
-          url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+          url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
           _context.n = 1;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -8524,12 +8522,10 @@ function () {
           stripe = Stripe('pk_test_51SraUfQVAS1feIYIOlYFKaM7Zf7TPkFT2J0zvpWAIuweZj3sB84FHDKelU41HwjbVpuK8zj3ODOm1XMVZ0YQlIYp00kHeCGMHW');
           _context.p = 1;
           _context.n = 2;
-          return (0, _axios.default)("http://127.0.0.1:3000/api/v1/bookings/checkout-session/".concat(tourId));
+          return (0, _axios.default)("/api/v1/bookings/checkout-session/".concat(tourId));
 
         case 2:
           session = _context.v;
-          console.log(session); // 2) Create checkout form + charge credit card
-
           _context.n = 3;
           return stripe.redirectToCheckout({
             sessionId: session.data.session.id
@@ -8838,7 +8834,6 @@ var userPasswordForm = document.querySelector('.form-user-password');
 var bookButton = document.getElementById('book-tour'); // DELEGATION
 
 if (mapBox) {
-  console.log('Map box found');
   var locations = JSON.parse(document.getElementById('map').dataset.locations);
   (0, _mapbox.displayMap)(locations);
 }
@@ -8912,7 +8907,6 @@ if (userDataForm) {
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
     (0, _updateSettings.updateSettings)(form, 'data');
   });
 }
@@ -8993,7 +8987,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51359" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63147" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
