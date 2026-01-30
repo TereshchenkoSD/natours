@@ -20,11 +20,12 @@ const viewRouter = require('./routes/viewRouter');
 // Start express app
 const app = express();
 
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Global Middlewares
-
+// 1)GLOBAL MIDDLEWARES
 // Serving static files
 
 app.use(express.static(path.join(__dirname, 'public')));
